@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <meta name="description" content="پادشاه هوش مصنوعی؛ مسیر حرفه‌ای یادگیری هوش مصنوعی از صفر تا کسب درآمد">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <title>پادشاه هوش مصنوعی</title>
@@ -17,100 +19,37 @@
 <div class="app-shell">
 <header class="topbar glass">
   <button class="icon-btn" id="themeBtn" aria-label="تغییر حالت نمایش">☀️</button>
-  <div class="brand">
-    <div class="crown">♛</div>
-    <div><strong>پادشاه هوش مصنوعی</strong><small>مدیریت مهندس امیری</small></div>
-  </div>
+  <div class="brand"><div class="crown">♛</div><div><strong>پادشاه هوش مصنوعی</strong><small>مدیریت مهندس امیری</small></div></div>
   <button class="avatar-btn" data-route="profile" aria-label="پروفایل">👤</button>
 </header>
 
 <main id="app">
 <section class="page active" id="home">
   <div class="hero glass">
-    <div class="hero-copy">
-      <span class="eyebrow">AI • EDUCATION • FUTURE</span>
-      <h1>پادشاه<br><span>هوش مصنوعی</span></h1>
-      <p>مسیر حرفه‌ای یادگیری هوش مصنوعی از صفر تا کسب درآمد.</p>
-      <p class="muted">با آموزش‌های کاربردی و پروژه‌محور، مهارت‌هایی بساز که برای آینده واقعی تو کاربرد دارند.</p>
-      <div class="actions">
-        <button class="primary" data-route="courses">مشاهده دوره‌ها ←</button>
-        <button class="secondary" data-route="path">شروع یادگیری</button>
-      </div>
-    </div>
+    <div class="hero-copy"><span class="eyebrow">AI • EDUCATION • FUTURE</span><h1>پادشاه<br><span>هوش مصنوعی</span></h1><p>مسیر حرفه‌ای یادگیری هوش مصنوعی از صفر تا کسب درآمد.</p><p class="muted">آموزش کاربردی، تمرین پروژه‌محور و مسیر مرحله‌به‌مرحله برای ساخت مهارت واقعی.</p><div class="actions"><button class="primary" data-route="courses">مشاهده دوره‌ها ←</button><button class="secondary" data-route="path">شروع یادگیری</button><button class="secondary install-btn" id="installBtn" hidden>نصب اپ</button></div></div>
     <div class="ai-orb" aria-hidden="true"><div class="orb-ring r1"></div><div class="orb-ring r2"></div><div class="orb-core">AI</div></div>
   </div>
-
   <div class="section-head"><div><span class="eyebrow">LEARNING PATH</span><h2>از شروع تا حرفه‌ای شدن</h2></div><button class="text-btn" data-route="path">مشاهده مسیر</button></div>
-  <div class="path-mini glass">
-    <div class="step done"><b>۱</b><span>مقدماتی</span></div><i>←</i>
-    <div class="step"><b>۲</b><span>پیشرفته</span></div><i>←</i>
-    <div class="step"><b>۳</b><span>حرفه‌ای</span></div><i>←</i>
-    <div class="step"><b>۴</b><span>کسب درآمد</span></div>
-  </div>
-
+  <div class="path-mini glass"><div class="step done"><b>۱</b><span>مقدماتی</span></div><i>←</i><div class="step"><b>۲</b><span>پیشرفته</span></div><i>←</i><div class="step"><b>۳</b><span>حرفه‌ای</span></div><i>←</i><div class="step"><b>۴</b><span>کسب درآمد</span></div></div>
   <div class="section-head"><div><span class="eyebrow">COURSES</span><h2>دوره‌های آموزشی</h2></div><button class="text-btn" data-route="courses">همه دوره‌ها</button></div>
   <div class="course-grid" id="homeCourses"></div>
-
-  <div class="collab glass">
-    <div class="collab-icon">✦</div>
-    <div><span class="eyebrow">با همکاری</span><h3>کانون پرورش فکری</h3><p>آموزش، خلاقیت و مهارت برای ساخت آینده‌ای هوشمند.</p></div>
-  </div>
+  <div class="collab glass"><div class="collab-icon">✦</div><div><span class="eyebrow">با همکاری</span><h3>کانون پرورش فکری</h3><p>آموزش، خلاقیت و مهارت برای ساخت آینده‌ای هوشمند.</p></div></div>
 </section>
 
-<section class="page" id="courses">
-  <div class="page-title"><span class="eyebrow">COURSES</span><h1>دوره‌های آموزشی</h1><p>مسیر مناسب خودت را انتخاب کن.</p></div>
-  <div class="course-grid" id="allCourses"></div>
-</section>
+<section class="page" id="courses"><div class="page-title"><span class="eyebrow">COURSES</span><h1>دوره‌های آموزشی</h1><p>یک دوره را انتخاب کن و پیشرفتت را جلسه‌به‌جلسه ثبت کن.</p></div><div class="course-grid" id="allCourses"></div></section>
+<section class="page" id="course-detail"><button class="back-btn" data-route="courses">→ بازگشت به دوره‌ها</button><div id="courseDetail"></div></section>
+<section class="page" id="path"><div class="page-title"><span class="eyebrow">ROADMAP</span><h1>مسیر تبدیل شدن به پادشاه هوش مصنوعی 👑</h1><p>چهار مرحله برای ساختن مهارت‌های واقعی.</p></div><div class="timeline" id="timeline"></div></section>
 
-<section class="page" id="course-detail">
-  <button class="back-btn" data-route="courses">→ بازگشت به دوره‌ها</button>
-  <div id="courseDetail"></div>
-</section>
+<section class="page" id="support"><div class="page-title"><span class="eyebrow">SUPPORT</span><h1>پشتیبانی</h1><p>راهنمایی، گزارش مشکل و سوابق پیام‌های ثبت‌شده.</p></div><div class="support-grid"><div class="glass info-card"><span>❓</span><h3>سؤالات متداول</h3><p>پاسخ کوتاه به پرسش‌های رایج درباره ثبت‌نام و پیشرفت.</p><button class="secondary" id="faqBtn">مشاهده</button></div><div class="glass info-card"><span>💬</span><h3>ارسال پیام</h3><p>پیام را در سوابق پشتیبانی همین دستگاه ثبت کن.</p><button class="secondary" id="messageBtn">ارسال پیام</button></div><div class="glass info-card"><span>🛠️</span><h3>گزارش مشکل</h3><p>اشکال اپلیکیشن را با توضیح دقیق ثبت کن.</p><button class="secondary" id="issueBtn">گزارش مشکل</button></div></div><div class="section-head compact"><div><span class="eyebrow">HISTORY</span><h2>سوابق پیام‌ها</h2></div></div><div id="ticketList" class="ticket-list"></div></section>
 
-<section class="page" id="path">
-  <div class="page-title"><span class="eyebrow">ROADMAP</span><h1>مسیر تبدیل شدن به پادشاه هوش مصنوعی 👑</h1><p>چهار مرحله برای ساختن مهارت‌های واقعی.</p></div>
-  <div class="timeline" id="timeline"></div>
-</section>
+<section class="page" id="profile"><div class="page-title"><span class="eyebrow">PROFILE</span><h1>پروفایل من</h1><p>پیشرفت یادگیری خودت را دنبال کن.</p></div><div class="profile-card glass"><div class="profile-avatar">👑</div><div><h2 id="profileName">هنرجوی پادشاه AI</h2><p class="muted">عضو مسیر یادگیری</p></div><button class="icon-btn" id="editName" aria-label="ویرایش نام">✎</button></div><div class="stats-grid"><div class="glass stat"><b id="savedCount">۰</b><span>دوره ذخیره‌شده</span></div><div class="glass stat"><b id="overallProgress">۰٪</b><span>پیشرفت کلی</span></div><div class="glass stat"><b id="certificateCount">۰</b><span>دوره تکمیل‌شده</span></div></div><div class="glass progress-card"><div class="row"><h3>پیشرفت مسیر</h3><span id="progressPercent">۰٪</span></div><div class="progress"><i id="progressBar"></i></div><p class="muted" id="profileHint">با انتخاب یک دوره، مسیر یادگیری تو شروع می‌شود.</p></div><div class="section-head compact"><div><span class="eyebrow">MY COURSES</span><h2>دوره‌های من</h2></div></div><div id="myCourses" class="my-courses"></div></section>
 
-<section class="page" id="support">
-  <div class="page-title"><span class="eyebrow">SUPPORT</span><h1>پشتیبانی</h1><p>اگر جایی نیاز به راهنمایی داشتی، از اینجا شروع کن.</p></div>
-  <div class="support-grid">
-    <div class="glass info-card"><span>❓</span><h3>سؤالات متداول</h3><p>پاسخ پرسش‌های رایج درباره دوره‌ها و مسیر یادگیری.</p><button class="secondary" data-toast="بخش سؤالات متداول در نسخه بعدی تکمیل می‌شود.">مشاهده</button></div>
-    <div class="glass info-card"><span>💬</span><h3>ارسال پیام</h3><p>پیام خود را برای تیم پشتیبانی بنویس.</p><button class="secondary" id="messageBtn">ارسال پیام</button></div>
-    <div class="glass info-card"><span>🛠️</span><h3>گزارش مشکل</h3><p>اگر مشکلی در اپلیکیشن دیدی، اطلاع بده.</p><button class="secondary" id="issueBtn">گزارش مشکل</button></div>
-  </div>
-</section>
-
-<section class="page" id="profile">
-  <div class="page-title"><span class="eyebrow">PROFILE</span><h1>پروفایل من</h1><p>پیشرفت یادگیری خودت را دنبال کن.</p></div>
-  <div class="profile-card glass">
-    <div class="profile-avatar">👑</div><div><h2 id="profileName">هنرجوی پادشاه AI</h2><p class="muted">عضو مسیر یادگیری</p></div>
-    <button class="icon-btn" id="editName">✎</button>
-  </div>
-  <div class="stats-grid"><div class="glass stat"><b id="savedCount">0</b><span>دوره ذخیره‌شده</span></div><div class="glass stat"><b>۰٪</b><span>پیشرفت کلی</span></div><div class="glass stat"><b>۰</b><span>گواهی</span></div></div>
-  <div class="glass progress-card"><div class="row"><h3>شروع مسیر</h3><span>۰٪</span></div><div class="progress"><i></i></div><p class="muted">با انتخاب یک دوره، مسیر یادگیری تو شروع می‌شود.</p></div>
-</section>
-
-<section class="page" id="contact">
-  <div class="page-title"><span class="eyebrow">CONTACT</span><h1>ارتباط با ما</h1><p>اطلاعات تماس را می‌توانی بعداً در فایل تنظیمات پروژه تکمیل کنی.</p></div>
-  <div class="contact-grid">
-    <div class="glass contact-card"><span>👨‍🏫</span><h3>مدیریت</h3><p>مهندس امیری</p></div>
-    <div class="glass contact-card"><span>🏛️</span><h3>همکاری</h3><p>کانون پرورش فکری</p></div>
-    <div class="glass contact-card"><span>📞</span><h3>شماره تماس</h3><p class="placeholder">اطلاعات تماس در اینجا قرار می‌گیرد.</p></div>
-    <div class="glass contact-card"><span>📍</span><h3>آدرس</h3><p class="placeholder">آدرس مجموعه در اینجا قرار می‌گیرد.</p></div>
-  </div>
-</section>
+<section class="page" id="contact"><div class="page-title"><span class="eyebrow">CONTACT</span><h1>ارتباط با ما</h1><p>اطلاعاتی که هنوز ارائه نشده، عمداً به‌صورت جای‌خالی نمایش داده می‌شود تا داده ساختگی وارد محصول نشود.</p></div><div class="contact-grid"><div class="glass contact-card"><span>👨‍🏫</span><h3>مدیریت</h3><p>مهندس امیری</p></div><div class="glass contact-card"><span>🏛️</span><h3>همکاری</h3><p>کانون پرورش فکری</p></div><div class="glass contact-card"><span>📞</span><h3>شماره تماس</h3><p class="placeholder">شماره رسمی مجموعه هنوز وارد نشده است.</p></div><div class="glass contact-card"><span>📍</span><h3>آدرس</h3><p class="placeholder">آدرس رسمی مجموعه هنوز وارد نشده است.</p></div></div></section>
 </main>
 
-<nav class="bottom-nav glass">
- <button class="nav-item active" data-route="home"><span>⌂</span>خانه</button>
- <button class="nav-item" data-route="courses"><span>🎓</span>دوره‌ها</button>
- <button class="nav-item" data-route="path"><span>♛</span>مسیر</button>
- <button class="nav-item" data-route="support"><span>💬</span>پشتیبانی</button>
- <button class="nav-item" data-route="contact"><span>☏</span>ارتباط</button>
-</nav>
-<div id="toast"></div>
-<div class="modal" id="modal"><div class="modal-box glass"><button class="close" id="closeModal">×</button><h3 id="modalTitle">پیام</h3><textarea id="modalText" placeholder="پیام خود را بنویسید..."></textarea><button class="primary" id="sendModal">ارسال</button></div></div>
+<nav class="bottom-nav glass" aria-label="ناوبری اصلی"><button class="nav-item active" data-route="home"><span>⌂</span>خانه</button><button class="nav-item" data-route="courses"><span>🎓</span>دوره‌ها</button><button class="nav-item" data-route="path"><span>♛</span>مسیر</button><button class="nav-item" data-route="support"><span>💬</span>پشتیبانی</button><button class="nav-item" data-route="contact"><span>☏</span>ارتباط</button></nav>
+<div id="toast" role="status" aria-live="polite"></div>
+<div class="modal" id="modal"><div class="modal-box glass"><button class="close" id="closeModal" aria-label="بستن">×</button><h3 id="modalTitle">پیام</h3><textarea id="modalText" placeholder="پیام خود را بنویسید..."></textarea><button class="primary" id="sendModal">ثبت پیام</button></div></div>
 </div>
 <script src="app.js"></script>
 </body>
